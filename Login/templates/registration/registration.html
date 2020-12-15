@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+<link rel="stylesheet" type="text/css" href={% static 'css/mystyle.css' %}>
+</head>
+<title>
+	Registration
+</title>
+<body>
+<form action="" method="POST">
+	{% csrf_token %}
+	{{reg_form}}
+	<div class="container">
+		<h1>Registration</h1>
+		<hr>
+
+		<label for="username"><b>Username</b></label>
+		<input type="text" class="auth-input" placeholder="Enter username" name="username" required>
+
+		<label for="psw"><b>Password</b></label>
+		<input type="password" class="auth-input" placeholder="Enter Password" name="psw" required>
+
+		<label for="psw-repeat"><b>Repeat Password</b></label>
+		<input type="password" class="auth-input" placeholder="Repeat Password" name="psw-repeat" required>
+		<hr>
+		{% if messages %}
+		<ul class="messages">
+    	{% for message in messages %}
+    	<li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    	{% endfor %}
+		</ul>
+		{% endif %}
+		<button type="submit" name="btn-reg-form" class="button1">Registration</button>
+	</div>
+	<div class="container signin">
+		<p>Already have an account? <a href="/">Sing in</a>.</p>
+	</div>
+</form>
+</body>

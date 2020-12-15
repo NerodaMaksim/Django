@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+
+</head>
+<title>
+	Login
+</title>
+<body>
+<link rel="stylesheet" type="text/css" href={% static 'css/mystyle.css' %}>
+<form action="" method="post">
+	{% csrf_token %}
+	{{auth_form}}
+	<div class="container">
+		<h1>Login</h1>
+		<hr>
+
+		<label for="username"><b>Username</b></label>
+		<input type="text" class="auth-input" placeholder="Enter username" name="username" required>
+
+		<label for="psw"><b>Password</b></label>
+		<input type="password" class="auth-input" placeholder="Enter Password" name="psw" required>
+		{% if messages %}
+		<ul class="messages">
+    	{% for message in messages %}
+    	<li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    	{% endfor %}
+		</ul>
+		{% endif %}
+		<button type="submit" name="btn-login-form" class="button1">Login</button>
+	</div>
+	<div class="container signin">
+		<p>Don't have account? <a href="registration/">Sign up</a>.</p>
+	</div>
+
+
+</form>
+</body>

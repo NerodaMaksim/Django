@@ -1,0 +1,130 @@
+*{box-sizing: border-box}
+
+/*Padding to containers*/
+.container{
+	width: 30%;
+	margin-left: auto;
+    	margin-right: auto;
+	padding: 16px;
+	background: #f1f1f1
+}
+
+.username-text {
+    color: #F10A0A;
+    font: 20px times-new-roman;
+}
+
+.table-container {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 16px;
+    background: #09FFA2;
+    position: relative;
+}
+
+/*Full-width input fields*/
+.auth-input{
+	width: 100%;
+	padding: 15px;
+	margin: 5px 0 22px 0;
+	display: inline-block;
+	border: 2px solid ##008CBA;
+	background: #f1f1f1;
+}
+
+auth-input:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit/login button */
+.button1 {
+  background-color: #008CBA;
+  border-radius: 4px;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transition-duration: 0.4s;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.button1:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid #008CBA
+}
+
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+.signup {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+.user-list {
+    list-style: none;
+}
+
+.role-input {
+    width: auto;
+	padding: 15px;
+	margin: 5px 0 22px 0;
+	display: inline-block;
+	border: 2px solid ##008CBA;
+	background: #f1f1f1;
+}
+
+.user-list-row {
+    border-bottom: 3px double black;
+}
+
+.logout-btn {
+    background-color: #008CBA;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border-radius: 4px;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: auto;
+  opacity: 0.9;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transition-duration: 0.4s;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.logout-btn:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid #008CBA
+}

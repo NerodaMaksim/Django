@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+{%load static%}
+<head>
+    <link rel="stylesheet" type="text/css" href={% static 'css/mystyle.css' %}>
+</head>
+<title>
+    Admin web-page
+</title>
+<body>
+<div class="table-container">
+<center><b><h2>Welcome, {{ current_user.username }}!</h2></b></center>
+    <button class="logout-btn" onclick="window.location.href = '/';">Logout</button>
+    <form action="" method="post" name="admin_form">
+    {%csrf_token %}
+    <ul class="user-list">
+        {% for user in all_users %}
+            <li class="user-list-row">
+                <label for="text"><b>Username:</b></label>
+                <label for="text" class="username-text"><b>{{ user.username }}</b></label>
+                <label for="text"><b>Role:</b></label>
+                <input type="text" class="role-input" name="role {{user.username}}" value={{ user.role }} {%if user.role == "admin"%} disabled {%endif%} {%if current_user.change_permission is False%} disabled {%endif%} {% if current_user.username == user.username%} disabled {%endif%}>
+                <label for="text"><b>Read permission:</b></label>
+                <input type="checkbox" name="read_permission {{user.username}}" {% if user.read_permission %} checked {%endif%} {%if user.role == "admin"%} disabled {%endif%} {%if current_user.write_permission is False%} disabled {%endif%} {% if current_user.username == user.username%} disabled {%endif%}>
+                <label for="text"><b>Write permission:</b></label>
+                <input type="checkbox" name="write_permission {{user.username}}" {% if user.write_permission %} checked {%endif%} {%if user.role == "admin"%} disabled {%endif%} {%if current_user.write_permission is False%} disabled {%endif%} {% if current_user.username == user.username%} disabled {%endif%}>
+                <label for="text"><b>Change permission:</b></label>
+                <input type="checkbox" name="change_permission {{user.username}}" {% if user.change_permission %} checked {%endif%} {%if user.role == "admin"%} disabled {%endif%} {%if current_user.write_permission is False%} disabled {%endif%} {% if current_user.username == user.username%} disabled {%endif%}>
+            </li>
+        {% endfor %}
+    </ul>
+    <button class="button1" name="save-changes-btn">Save changes</button>
+        </form>
+</div>
+
+</body>
+</html>

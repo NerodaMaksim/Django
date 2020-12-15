@@ -1,0 +1,4 @@
+2020-04-28 15:22:14.834338  Registered user: user3  Role: user  Read_permission: True   Write_permission: False Change_permission: False
+2020-04-28 15:45:06.368192  Attempt to registrate user: user4  Cause: Passwords doesn't match
+2020-04-28 15:47:20.28567   Attempt to registrate user: admin   Cause: This username already registered
+2020-12-14 16:36:51.469439	Attempt to registrate user: dfghjsakdCause: Passwords doesn't match2020-12-14 16:37:02.268186	registered user: ahgsdasdhj	role: user	read_permission: True	write_permission: False	change_permission: False
