@@ -1,19 +1,20 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from django.urls import reverse
+from django.contrib import messages
 
 from .forms import AuthForm, RegForm
 from .models import User
-from django import forms
-from django.contrib import messages
+
+
 import datetime
 from pathlib import Path
-import os
-# Create your views here.
+
+# Шлях до файлу, де зберігається інформація про реєстрацію користувачів
 LOG_FOLDER = Path('Login/static/logs/')
 REGISTRATION_LOG_FILE = LOG_FOLDER / 'registration_log.txt'
 
 
+# Функція, що обробляє події сторінки входу до системи
 def index(request):
     auth_form = AuthForm(request.POST or None)
     if request.method == 'POST' and 'btn-login-form' in request.POST:
@@ -22,13 +23,13 @@ def index(request):
             username = auth_form.data['username']
             password = auth_form.data['psw']
             if check_user_login(username, password):
-                # messages.add_message(request, messages.SUCCESS, 'You logged in successfully!!')
                 return HttpResponseRedirect('admin_web_page/%s' % username)
             else:
                 messages.add_message(request, messages.WARNING, 'Wrong username or password!!')
     return render(request, 'login/login.html', {'form': auth_form})
 
 
+# Функція, що перевіряє наявність користувача у базі даних і звіряє введений пароль із правивльним.
 def check_user_login(username, password):
     all_users = [{'username': user.username,
                   'password': user.password}
@@ -40,6 +41,7 @@ def check_user_login(username, password):
     return False
 
 
+# Функція, що перевіряє наявність користувача в базі даних для запобігання ситуації двох користувавчів з однаковим ім'ям
 def check_user_reg(username):
     all_users = [user.username for user in User.objects.all()]
     print(all_users)
@@ -49,6 +51,7 @@ def check_user_reg(username):
         return False
 
 
+# Функція, що обробляє події сторінки реєстрації до системи
 def registration(request):
     reg_form = RegForm(request.POST or None)
     reg_log = open(REGISTRATION_LOG_FILE, 'a')
@@ -83,6 +86,7 @@ def registration(request):
     return render(request, 'registration/registration.html', {'form': reg_form})
 
 
+# Функція, що за ім'ям користувача повертає інформацію про нього
 def find_user(username):
     all_users = list(User.objects.all())
     for user in all_users:
@@ -90,6 +94,7 @@ def find_user(username):
             return user
 
 
+# Функція, що відповідає за обробку подій адміністративної сторінки
 def admin_web_page(request, username):
     all_users = list(User.objects.all())
     current_user = find_user(username)

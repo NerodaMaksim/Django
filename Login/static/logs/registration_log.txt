@@ -2,3 +2,5 @@
 2020-04-28 15:45:06.368192  Attempt to registrate user: user4  Cause: Passwords doesn't match
 2020-04-28 15:47:20.28567   Attempt to registrate user: admin   Cause: This username already registered
 2020-12-14 16:36:51.469439	Attempt to registrate user: dfghjsakdCause: Passwords doesn't match2020-12-14 16:37:02.268186	registered user: ahgsdasdhj	role: user	read_permission: True	write_permission: False	change_permission: False
+2020-12-16 12:33:22.184139	registered user: user4	role: user	read_permission: True	write_permission: False	change_permission: False
+2020-12-16 15:18:27.075306	Attempt to registrate user: USERCause: Passwords doesn't match2020-12-16 15:18:49.669042	Attempt to registrate user: USERCause: Passwords doesn't match2020-12-16 15:18:54.115980	Attempt to registrate user: USERCause: Passwords doesn't match2020-12-16 15:19:18.715650	registered user: USER	role: user	read_permission: True	write_permission: False	change_permission: False
